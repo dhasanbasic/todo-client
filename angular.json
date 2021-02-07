@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "assessment-fe": {
+    "todo-client": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/assessment-fe",
+            "outputPath": "dist/todo-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "assessment-fe:build"
+            "browserTarget": "todo-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "assessment-fe:build:production"
+              "browserTarget": "todo-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "assessment-fe:build"
+            "browserTarget": "todo-client:build"
           }
         },
         "test": {
@@ -114,18 +114,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "assessment-fe:serve"
+            "devServerTarget": "todo-client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "assessment-fe:serve:production"
+              "devServerTarget": "todo-client:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "assessment-fe",
+  "defaultProject": "todo-client",
   "cli": {
     "analytics": false
   }

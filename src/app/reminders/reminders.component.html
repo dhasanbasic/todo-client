@@ -1,0 +1,18 @@
+
+<h2>To-dos</h2>
+
+<ul class="reminders">
+    <li *ngFor="let reminder of reminders">
+        <input type="checkbox" [checked]="reminder.done" />
+        {{reminder.description}}
+        <button class="delete" title="Remove reminder"
+            (click)="deleteReminder(reminder)">x</button>
+    </li>
+</ul>
+
+<div>
+    <label for="reminderDescription">Add reminder:</label>
+    <input id="reminderDescription" type="text"
+            [(ngModel)]="reminderDescription"
+            (keyup.enter)="addReminder()"/>
+</div>
