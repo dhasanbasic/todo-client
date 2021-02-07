@@ -1,4 +1,14 @@
-# AssessmentFe
+# Client-side solution to a to-do list assessment
+
+This is a demonstration Angular application which resembles a simple to-do list.
+The requirements are to display a list of to-dos, also being able to remove them, add new ones through an input field, and mark or unmark existing to-dos as done, which should appear striked through.
+
+The solution has following features:
+* All requirements are implemented in a single Angular component.
+  * In a more realistic scenario, adding a to-do would require its own component, as it would have far more features (for example assigning a reminder date and time).
+* For communication with the backend-counterpart of the assessment, an Angular service was created to follow the framework guidelines.
+* Minimalistic (S)CSS is used for laying out the UI elements, but in reality one would not re-invent the whell, but rather use libraries like Bootstrapt, Angular Material etc.
+* Updating the to-do list always first invokes the backend, but in reality one would collect operations and invoke them periodically, to save server-time and band-width.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
 
