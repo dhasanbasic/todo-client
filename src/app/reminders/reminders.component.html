@@ -1,18 +1,21 @@
 
-<h2>To-dos</h2>
+<h2>My To-dos</h2>
 
 <ul class="reminders">
-    <li *ngFor="let reminder of reminders">
-        <input type="checkbox" [checked]="reminder.done" />
-        {{reminder.description}}
-        <button class="delete" title="Remove reminder"
-            (click)="deleteReminder(reminder)">x</button>
+    <li *ngFor="let reminder of reminders; index as i">
+        <input id="reminderDone{{i}}" type="checkbox" [checked]="reminder.done" />
+        <label for="reminderDone{{i}}" [class.done]="reminder.done">
+            {{reminder.description}}
+        </label>
+        <button class="delete" title="Remove this to-do"
+                (click)="deleteReminder(reminder)">x</button>
     </li>
 </ul>
 
-<div>
-    <label for="reminderDescription">Add reminder:</label>
+<div class="new-reminder">
+    <label for="reminderDescription">One more:</label>
     <input id="reminderDescription" type="text"
+            title="Enter new to-do here"
             [(ngModel)]="reminderDescription"
             (keyup.enter)="addReminder()"/>
 </div>
