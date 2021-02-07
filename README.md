@@ -1,4 +1,4 @@
-# Client-side solution to a to-do list assessment
+# Frontend Solution for the Ista Todo List Assessment
 
 This is a demonstration Angular application which resembles a simple to-do list.
 The requirements are to display a list of to-dos, also being able to remove them, add new ones through an input field, and mark or unmark existing to-dos as done, which should appear striked through.

@@ -34,6 +34,11 @@ export class RemindersComponent implements OnInit {
     }
   }
 
+  updateReminderStatus(reminder: Reminder, done: boolean): void {
+    reminder.done = done;
+    this.reminderService.updateReminder(reminder).subscribe();
+  }
+
   deleteReminder(reminder: Reminder): void {
     this.reminders = this.reminders.filter(r => r.id !== reminder.id);
     this.reminderService.deleteReminder(reminder).subscribe();

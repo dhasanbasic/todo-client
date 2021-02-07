@@ -3,7 +3,9 @@
 
 <ul class="reminders">
     <li *ngFor="let reminder of reminders; index as i">
-        <input id="reminderDone{{i}}" type="checkbox" [checked]="reminder.done" />
+        <input #reminderDone id="reminderDone{{i}}" type="checkbox"
+                [checked]="reminder.done"
+                (change)="updateReminderStatus(reminder, reminderDone.checked)"/>
         <label for="reminderDone{{i}}" [class.done]="reminder.done">
             {{reminder.description}}
         </label>

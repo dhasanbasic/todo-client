@@ -12,7 +12,9 @@ import { Reminder } from '../model/reminder';
 })
 export class ReminderService {
   private remindersUrl = environment.reminderApiUrl;
-  private defaultHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+  private defaultOptions = {
+    headers: { 'Content-Type': 'application/json' }
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -24,12 +26,16 @@ export class ReminderService {
   }
 
   createReminder(description: string): Observable<Reminder> {
-    let options = {
-      headers: this.defaultHeaders,
-      params: { "description": description}
-    };
-    return this.http.post<Reminder>(this.remindersUrl, null, options).pipe(
-      catchError(this.handleError<Reminder>('addReminder'))
+    let reminder = { description: description };
+    return this.http.post<Reminder>(this.remindersUrl, reminder, this.defaultOptions).pipe(
+      catchError(this.handleError<Reminder>('createReminder'))
+    );
+  }
+
+  updateReminder(reminder: Reminder): Observable<Reminder> {
+    let endpoint = `${this.remindersUrl}/${reminder.id}`;
+    return this.http.put<Reminder>(endpoint, reminder, this.defaultOptions).pipe(
+      catchError(this.handleError<Reminder>('updateReminder', reminder))
     );
   }
 
