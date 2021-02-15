@@ -42,7 +42,7 @@ export class ReminderService {
   deleteReminder(reminder: Reminder): Observable<void> {
     let endpoint = `${this.remindersUrl}/${reminder.id}`;
     return this.http.delete<void>(endpoint).pipe(
-      catchError(this.handleError<void>('deleteHero'))
+      catchError(this.handleError<void>('deleteReminder'))
     );
   }
 
